@@ -2,8 +2,8 @@
 Estimated time: 5hrs
 ### Part 1
     13 Sep '22
-    13:53 - 14:35: Working on the login and signup API 
-    15:00 - 17:00: Working on the login and signup API
+    10:05 - 11:15: Working on the login and signup  and access and refresh token API 
+    12:17 - 01:00: Checking  login and signup  and access and refresh token API with  the postman 
     --------------
 
 
