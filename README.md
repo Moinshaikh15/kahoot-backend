@@ -9,7 +9,7 @@
 ```
 ### kahoot
 ``` 
-POST /kahoot/new - add new kahoot
+```POST /kahoot/new```` - add new kahoot
 GET /kahoot - get all kahoots
 GET /kahoot/:id - get kahoot by id
 POST /kahoot/:id/edit -edit kahoot by id
