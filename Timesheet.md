@@ -24,7 +24,8 @@ Total time required: 7hrs & 15min
     Estimated time: 7hrs
     
     Part 1 
-    08:40 - 11:00  
+    08:40 - 09:20: Working on frontend - created home page
+    09:50 - 11:20: Working on frontend - created details page and worinking on create new kahoot page
     
     
 
