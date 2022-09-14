@@ -1,7 +1,7 @@
 const express = require("express");
 const KahootModel = require("../module/kahootSchema");
 const multer = require("multer");
-
+const mongoose = require("mongoose");
 let router = express.Router();
 
 let storage = multer.diskStorage({
@@ -17,12 +17,12 @@ const uploads = multer({ storage: storage });
 
 //create new kahoot
 router.post("/new", uploads.single("image"), async (req, res) => {
-  let { title, timeLimit, questions,creator } = req.body;
+  let { title, timeLimit, questions, creator } = req.body;
   // questions = JSON.parse(questions);
   let imgUrl = req.file
     ? process.env.BASE_URL + "uploads/" + req.file.filename
     : "no";
-  console.log(questions)
+  console.log(questions);
 
   if (questions === undefined || questions.length === 0) {
     return res.status(400).send("Please add questions to kahoot");
@@ -32,9 +32,8 @@ router.post("/new", uploads.single("image"), async (req, res) => {
     title,
     timeLimit,
     questions,
-    creator
+    creator,
   });
-  
 
   try {
     let savedKahoot = await newkahoot.save();
@@ -70,7 +69,10 @@ router.post("/:id/edit", async (req, res) => {
   let id = req.params.id;
   let data = req.body;
   try {
-    let kahoot = await KahootModel.findByIdAndUpdate({ _id: id }, { data });
+    let kahoot = await KahootModel.findByIdAndUpdate(
+      { _id: mongoose.Types.ObjectId(req.body.productId) },
+      { $set: { kahoots: data } }
+    );
     return res.status(200).send("updated successfully");
   } catch (err) {
     return res.status(400).send(err.message);

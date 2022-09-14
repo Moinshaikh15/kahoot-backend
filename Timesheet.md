@@ -33,7 +33,7 @@ Total time required: 7hrs & 15min
     01:30 - 04:30: Working on frontend -  on start quiz
     04:30 - 05:15: Working on backend  -  on socket io setup
     05:15 - 05:45: Working on frontend - on socket io setup
-
-Total time required: 7hrs 45min
+    08:45 - 09:13: working on frontend - on edit of kahoot
+Total time required: 8hrs 13min
 
 ---
