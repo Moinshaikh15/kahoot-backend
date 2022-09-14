@@ -20,6 +20,17 @@ Total time required: 7hrs & 15min
  
 ## Milestone 2
 
+### 14 Sep '22
+    Estimated time: 7hrs
+    
+    Part 1 
+    08:40 - 11:00  
+    
+    
+
+Total time required: 
+  --------------
+
 
 
 
