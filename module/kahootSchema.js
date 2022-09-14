@@ -31,6 +31,10 @@ let KahootSchema = new mongoose.Schema(
         },
       },
     ],
+    creator: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Users",
+    },
   },
   { timestamps: true }
 );

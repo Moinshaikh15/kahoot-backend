@@ -17,11 +17,13 @@ const uploads = multer({ storage: storage });
 
 //create new kahoot
 router.post("/new", uploads.single("image"), async (req, res) => {
-  let { title, timeLimit, questions } = req.body;
-  questions = JSON.parse(questions);
+  let { title, timeLimit, questions,creator } = req.body;
+  // questions = JSON.parse(questions);
   let imgUrl = req.file
     ? process.env.BASE_URL + "uploads/" + req.file.filename
-    : "";
+    : "no";
+  console.log(questions)
+
   if (questions === undefined || questions.length === 0) {
     return res.status(400).send("Please add questions to kahoot");
   }
@@ -30,7 +32,7 @@ router.post("/new", uploads.single("image"), async (req, res) => {
     title,
     timeLimit,
     questions,
-    imgUrl,
+    creator
   });
   
 

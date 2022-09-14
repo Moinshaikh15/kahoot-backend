@@ -6,6 +6,8 @@ const morgan = require("morgan");
 const authRouter = require("./routes/auth");
 const kahootRouter = require("./routes/kahoot");
 const jwt = require("jsonwebtoken");
+const { Server, Socket } = require("socket.io");
+
 let app = express();
 
 let DB_URL =
@@ -25,7 +27,31 @@ app.use(morgan("dev"));
 app.use("/auth", authRouter);
 app.use(authenticateRequest);
 app.use("/kahoot", kahootRouter);
-app.listen(process.env.PORT || 8000);
+let httpServer = app.listen(process.env.PORT || 8000);
+
+const io = new Server(httpServer, { cors: { origin: "*" } });
+
+io.on("connect", (socket) => {
+  console.log("client connected", socket.id);
+  socket.on("New-Room", () => {
+    let newRoomId = makeId(8);
+    socket.emit("new-id", newRoomId);
+  });
+  socket.on("joined", (name) => {
+    io.emit("new-id", name);
+  });
+});
+
+function makeId(length) {
+  var result = "";
+  var characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 function authenticateRequest(req, res, next) {
   let authHeaderInfo = req.headers["authorization"];
