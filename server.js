@@ -5,7 +5,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const authRouter = require("./routes/auth");
 const kahootRouter = require("./routes/kahoot");
-const queRouter=require('./routes/que')
+const queRouter = require("./routes/que");
 const jwt = require("jsonwebtoken");
 const { Server, Socket } = require("socket.io");
 
@@ -28,23 +28,37 @@ app.use(morgan("dev"));
 app.use("/auth", authRouter);
 app.use(authenticateRequest);
 app.use("/kahoot", kahootRouter);
-app.use('/que',queRouter)
+app.use("/que", queRouter);
 let httpServer = app.listen(process.env.PORT || 8000);
 
 const io = new Server(httpServer, { cors: { origin: "*" } });
-
+let roomIdArr = {};
 io.on("connect", (socket) => {
   console.log("client connected", socket.id);
   socket.on("New-Room", () => {
     let newRoomId = makeId(8);
     socket.emit("new-id", newRoomId);
+    roomIdArr[newRoomId] = {
+      creator: socket.id,
+    };
   });
-  socket.on("joined", (name) => {
-    io.emit("new-id", name);
+  socket.on("joined", (id) => {
+    console.log("id:".id);
+    if (roomIdArr[id] !== undefined) {
+      socket.emit("valid");
+    } else {
+      socket.emit("invalid");
+    }
   });
-  socket.on('new-que',(data)=>{
-    io.emit('got-newQue',data)
-  })
+  socket.on("name", ({ name, id }) => {
+    roomIdArr[id]["members"][name] = {
+      id: socket.id,
+    };
+    io.emit("member-joined", roomIdArr[id]["members"]);
+  });
+  socket.on("new-que", (data) => {
+    io.emit("got-newQue", data);
+  });
 });
 
 function makeId(length) {
