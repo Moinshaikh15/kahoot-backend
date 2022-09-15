@@ -69,10 +69,10 @@ router.post("/:id/edit", async (req, res) => {
   let id = req.params.id;
   let data = req.body;
   try {
-    let kahoot = await KahootModel.findByIdAndUpdate(
-      { _id: mongoose.Types.ObjectId(req.body.productId) },
-      { $set: { kahoots: data } }
-    );
+    let kahoot = await KahootModel.updateOne({ _id: id }, [
+      { $set: { ...data } },
+    ]);
+    console.log(kahoot);
     return res.status(200).send("updated successfully");
   } catch (err) {
     return res.status(400).send(err.message);

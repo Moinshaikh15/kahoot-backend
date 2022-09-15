@@ -5,6 +5,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const authRouter = require("./routes/auth");
 const kahootRouter = require("./routes/kahoot");
+const queRouter=require('./routes/que')
 const jwt = require("jsonwebtoken");
 const { Server, Socket } = require("socket.io");
 
@@ -27,6 +28,7 @@ app.use(morgan("dev"));
 app.use("/auth", authRouter);
 app.use(authenticateRequest);
 app.use("/kahoot", kahootRouter);
+app.use('/que',queRouter)
 let httpServer = app.listen(process.env.PORT || 8000);
 
 const io = new Server(httpServer, { cors: { origin: "*" } });
@@ -40,6 +42,9 @@ io.on("connect", (socket) => {
   socket.on("joined", (name) => {
     io.emit("new-id", name);
   });
+  socket.on('new-que',(data)=>{
+    io.emit('got-newQue',data)
+  })
 });
 
 function makeId(length) {

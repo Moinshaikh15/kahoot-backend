@@ -11,25 +11,8 @@ let KahootSchema = new mongoose.Schema(
       default: 20,
     },
     questions: [
-      {
-        ques: {
-          type: String,
-          required: true,
-        },
-        options: [String],
-        correctAns: {
-          type: String,
-          required: true,
-        },
-        type: {
-          type: String,
-          default: "quiz",
-        },
-        imgUrl: {
-          type: String,
-          default: "",
-        },
-      },
+     { type: mongoose.Schema.ObjectId,
+      ref: "ques",}
     ],
     creator: {
       type: mongoose.Schema.ObjectId,

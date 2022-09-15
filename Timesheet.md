@@ -1,5 +1,7 @@
 ## Milestone 1
 
+### complete auth and kahoot api call's
+
 ### 13 Sep '22
 
     Part 1
@@ -9,18 +11,20 @@
     12:17 - 01:08: Checking  login and signup  and access and refresh token API with  the postman
     01:30 - 03:15: Working with kahoot schema and API
 
-    Time required: 4hrs & 45min
+    Time spend: 4hrs & 45min
 
     Part 2
     03:30 - 06:00: Working with frontend signup and login and redux setup
 
-    Time required 2hrs & 30min
+    Time spend 2hrs & 30min
 
-Total time required: 7hrs & 15min
+Total time spend: 7hrs & 15min
 
 ---
 
 ## Milestone 2
+
+### completing making frontend for creating new kahoot and make it functional
 
 ### 14 Sep '22
 
@@ -34,6 +38,25 @@ Total time required: 7hrs & 15min
     04:30 - 05:15: Working on backend  -  on socket io setup
     05:15 - 05:45: Working on frontend - on socket io setup
     08:45 - 09:13: working on frontend - on edit of kahoot
-Total time required: 8hrs 13min
+
+Total time spend: 8hrs 13min
+
+---
+
+## Milestone 3
+
+### Making quiz run with socket io
+
+### 14 Sep '22
+
+    Estimated time: 7hrs
+
+    08:50- 09:30: working on backend- on adding image to que
+    09:50- 12:30: working on frontend and backend - on que creation and image adding
+    01:30- 03:30: working on frontend - on edit kahoot
+    03:40- 05:25: working on socket io for frontend
+    05:30- 05:45: fixing sum bugs
+
+Total time spend:
 
 ---
