@@ -61,3 +61,22 @@ Total time spend: 8hrs 13min
 Total time spend:
 
 ---
+
+## Milestone 4
+
+### Making quiz run with socket io frontend and backend
+
+### 14 Sep '22
+
+    Estimated time: 7hrs
+
+    08:30- 09:20: Worked on socket io for frontend and backend
+    10:05- 11:10: Worked on frontend and backend - socket making question run for both sender and receiver
+    11:30- 01:10: Worked on frontend ui for room id pages
+    01:45- 03:20: worked on socket made student able to select options of ques
+    04:00- 5:30: worked on getting all student score after finished
+    5:40-7:45: worked on showing them after finshed at last page and made options selected only once
+    9:30-10:20: worked on frontend ui
+Total time spend:
+
+---
