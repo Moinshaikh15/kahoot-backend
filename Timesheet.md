@@ -47,7 +47,7 @@ Total time spend: 8hrs 13min
 
 ### Making quiz run with socket io
 
-### 14 Sep '22
+### 15 Sep '22
 
     Estimated time: 7hrs
 
@@ -66,7 +66,7 @@ Total time spend:
 
 ### Making quiz run with socket io frontend and backend
 
-### 14 Sep '22
+### 16 Sep '22
 
     Estimated time: 7hrs
 
@@ -77,6 +77,23 @@ Total time spend:
     04:00- 5:30: worked on getting all student score after finished
     5:40-7:45: worked on showing them after finshed at last page and made options selected only once
     9:30-10:20: worked on frontend ui
+
 Total time spend:
+
+---
+
+## Milestone 5
+
+### Finishing the quiz
+
+### 17 Sep '22
+
+    Estimated time: 7hrs
+     11:05- 01-10: worked on getting correct scores and report
+     02:10- 03:20:worked on showing que at left of create page and it's styling
+     03:30- 04:45: worked on ui of details page
+     04:45-5:25:worked on ui of home page
+     5:30-7:02:worked on ui of create page
+     7:5-7:45:worked on play page ui
 
 ---

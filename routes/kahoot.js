@@ -19,9 +19,9 @@ const uploads = multer({ storage: storage });
 router.post("/new", uploads.single("image"), async (req, res) => {
   let { title, timeLimit, questions, creator } = req.body;
   // questions = JSON.parse(questions);
-  let imgUrl = req.file
-    ? process.env.BASE_URL + "uploads/" + req.file.filename
-    : "no";
+  // let imgUrl = req.file
+  //   ? process.env.BASE_URL + "uploads/" + req.file.filename
+  //   : "no";
   console.log(questions);
 
   if (questions === undefined || questions.length === 0) {

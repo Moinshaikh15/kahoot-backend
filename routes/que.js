@@ -46,4 +46,32 @@ router.get("/", async (req, res) => {
     return res.status(400).send(err.message);
   }
 });
+
+router.post("/:id/edit", uploads.single("img"), async (req, res) => {
+  let id = req.params.id;
+  let { ques, one, two, three, four, correctAns, type, imgURL } = req.body;
+  console.log(ques);
+  let options = [one, two, three, four];
+  // questions = JSON.parse(questions);
+  let imgUrl = req.file
+    ? process.env.BASE_URL + "uploads/" + req.file.filename
+    : imgURL;
+
+  let editedQue = {
+    ques,
+    options,
+    correctAns,
+    type,
+    imgUrl,
+  };
+  try {
+    let que = await QueModel.updateOne({ _id: id }, [
+      { $set: { ...editedQue } },
+    ]);
+    // console.log(que);
+    return res.status(200).send("updated successfully");
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
+});
 module.exports = router;

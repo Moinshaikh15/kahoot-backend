@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const authRouter = require("./routes/auth");
 const kahootRouter = require("./routes/kahoot");
 const queRouter = require("./routes/que");
+const reportRouter = require("./routes/report");
 const jwt = require("jsonwebtoken");
 const { Server, Socket } = require("socket.io");
 
@@ -29,6 +30,7 @@ app.use("/auth", authRouter);
 app.use(authenticateRequest);
 app.use("/kahoot", kahootRouter);
 app.use("/que", queRouter);
+app.use("/report", reportRouter);
 let httpServer = app.listen(process.env.PORT || 8000);
 
 const io = new Server(httpServer, { cors: { origin: "*" } });
