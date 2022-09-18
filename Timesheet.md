@@ -110,5 +110,6 @@ Total time spend: 8hrs 43min
     12:00-01:40: worked on making timer and added some more thing to que
     02:30-04:00:worked on editing question frontend and backend both
     04:00-04:50:worked on quiz page styling
+    09:30-11:00:worked on leaderBoard
 
 ---
