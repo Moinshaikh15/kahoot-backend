@@ -82,12 +82,12 @@ io.on("connect", (socket) => {
   });
 
   //ans is correct then increase members count
-  socket.on("correct", ({ roomId, memberId }) => {
+  socket.on("correct", ({ roomId, memberId, queScore }) => {
     let members = roomIdArr[roomId]["members"];
     console.log("correctanss");
     members.map((el) => {
       if (el.id === memberId) {
-        el.count++;
+        el.count += queScore;
       }
     });
     roomIdArr[roomId]["members"] = members;

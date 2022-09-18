@@ -11,6 +11,14 @@ let QueSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    score: {
+      type: Number,
+      default: 20,
+    },
+    timeLimit: {
+      type: Number,
+      default: 20,
+    },
     type: {
       type: String,
       default: "quiz",

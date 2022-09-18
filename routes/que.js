@@ -14,7 +14,8 @@ let storage = multer.diskStorage({
 const uploads = multer({ storage: storage });
 //create new kahoot
 router.post("/new", uploads.single("img"), async (req, res) => {
-  let { ques, one, two, three, four, correctAns, type } = req.body;
+  let { ques, one, two, three, four, correctAns, type, timeLimit, score } =
+    req.body;
   let options = [one, two, three, four];
   // questions = JSON.parse(questions);
   let imgUrl = req.file
@@ -27,6 +28,8 @@ router.post("/new", uploads.single("img"), async (req, res) => {
     correctAns,
     type,
     imgUrl,
+    timeLimit,
+    score,
   });
 
   try {
@@ -49,8 +52,19 @@ router.get("/", async (req, res) => {
 
 router.post("/:id/edit", uploads.single("img"), async (req, res) => {
   let id = req.params.id;
-  let { ques, one, two, three, four, correctAns, type, imgURL } = req.body;
-  console.log(ques);
+  let {
+    ques,
+    one,
+    two,
+    three,
+    four,
+    correctAns,
+    type,
+    timeLimit,
+    score,
+    imgURL,
+  } = req.body;
+  console.log(req.body);
   let options = [one, two, three, four];
   // questions = JSON.parse(questions);
   let imgUrl = req.file
@@ -63,6 +77,8 @@ router.post("/:id/edit", uploads.single("img"), async (req, res) => {
     correctAns,
     type,
     imgUrl,
+    timeLimit,
+    score,
   };
   try {
     let que = await QueModel.updateOne({ _id: id }, [

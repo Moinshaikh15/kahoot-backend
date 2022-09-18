@@ -28,7 +28,7 @@ Total time spend: 7hrs & 15min
 
 ### 14 Sep '22
 
-    Estimated time: 7hrs
+    Estimated time: 8hrs
 
     Part 1
     08:40 - 09:20: Worked on frontend - created home page
@@ -49,7 +49,7 @@ Total time spend: 8hrs 13min
 
 ### 15 Sep '22
 
-    Estimated time: 7hrs
+    Estimated time: 8hrs
 
     08:50- 09:30: Worked on backend- on adding image to que
     09:50- 12:30: Worked on frontend and backend - on que creation and image adding
@@ -58,7 +58,7 @@ Total time spend: 8hrs 13min
     05:30- 05:45: fixing sum bugs
     10:10- 10:50: Worked on socket io
 
-Total time spend:
+Total time spend: 7hrs 40 mins
 
 ---
 
@@ -68,23 +68,23 @@ Total time spend:
 
 ### 16 Sep '22
 
-    Estimated time: 7hrs
+    Estimated time: 8hrs
 
     08:30- 09:20: Worked on socket io for frontend and backend
     10:05- 11:10: Worked on frontend and backend - socket making question run for both sender and receiver
     11:30- 01:10: Worked on frontend ui for room id pages
     01:45- 03:20: worked on socket made student able to select options of ques
-    04:00- 5:30: worked on getting all student score after finished
-    5:40-7:45: worked on showing them after finshed at last page and made options selected only once
-    9:30-10:20: worked on frontend ui
+    04:00- 05:30: worked on getting all student score after finished
+    05:40- 07:45: worked on showing them after finished at last page and made options selected only once
+    09:30- 10:20: worked on frontend ui
 
-Total time spend:
+Total time spend: 9hrs 35min
 
 ---
 
 ## Milestone 5
 
-### Finishing the quiz
+### Finishing the quiz part
 
 ### 17 Sep '22
 
@@ -95,5 +95,20 @@ Total time spend:
      04:45-5:25:worked on ui of home page
      5:30-7:02:worked on ui of create page
      7:5-7:45:worked on play page ui
+
+Total time spend: 8hrs 43min
+
+---
+
+## Milestone 5
+
+### Finishing the quiz with timer
+
+### 18 Sep '22
+
+    Estimated time: 5hrs
+    12:00-01:40: worked on making timer and added some more thing to que
+    02:30-04:00:worked on editing question frontend and backend both
+    04:00-04:50:worked on quiz page styling
 
 ---
