@@ -111,5 +111,15 @@ Total time spend: 8hrs 43min
     02:30-04:00:worked on editing question frontend and backend both
     04:00-04:50:worked on quiz page styling
     09:30-11:00:worked on leaderBoard
-
+Total time spend: 5hrs 30min
 ---
+### 19 Sep '22
+
+    Estimated time: 7hrs
+    8:30-9:30: worked fit n finish
+    10:00-1:00:worked on ui and other bugs
+    1:30-04:00:worked on ui and other bugs
+
+Total time spend: 6hrs 30min
+---
+
