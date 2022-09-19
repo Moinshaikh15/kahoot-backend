@@ -6,6 +6,10 @@ let ReportSchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Kahoot",
     },
+    teacherId: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Users",
+    },
     scores: [
       {
         name: {
@@ -16,9 +20,9 @@ let ReportSchema = new mongoose.Schema(
           type: String,
           required: true,
         },
-        id:{
-            type:String,
-        }
+        id: {
+          type: String,
+        },
       },
     ],
   },

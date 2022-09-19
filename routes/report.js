@@ -5,11 +5,12 @@ let router = express.Router();
 
 //save new report
 router.post("/new", async (req, res) => {
-  let { kahootId, scores } = req.body;
-console.log(req.body)
+  let { kahootId, scores, teacherId } = req.body;
+  console.log(req.body);
   let newReport = new ReportModel({
     kahootId,
     scores,
+    teacherId,
   });
 
   try {
@@ -23,7 +24,9 @@ console.log(req.body)
 //save new report
 router.get("/", async (req, res) => {
   try {
-    let savedReport = await ReportModel.find({});
+    let savedReport = await ReportModel.find({})
+      .populate("kahootId", "title")
+      .populate("teacherId", "name");
     return res.status(200).send(savedReport);
   } catch (err) {
     return res.status(400).send(err.message);

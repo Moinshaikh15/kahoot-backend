@@ -50,23 +50,22 @@ io.on("connect", (socket) => {
 
   //join room
   socket.on("joined", (id) => {
-    //console.log("id:", id);
+    console.log("id:", id);
     if (roomIdArr[id] !== undefined) {
-      socket.emit("valid");
+      //add name to member
+      socket.on("name", ({ name, id }) => {
+        roomIdArr[id]["members"].push({
+          name,
+          id: socket.id,
+          count: 0,
+        });
+        let creatorId = roomIdArr[id].creator;
+        socket.to(creatorId).emit("member-joined", roomIdArr[id]["members"]);
+        socket.emit('valid')
+      });
     } else {
       socket.emit("invalid");
     }
-  });
-
-  //add name to member
-  socket.on("name", ({ name, id }) => {
-    roomIdArr[id]["members"].push({
-      name,
-      id: socket.id,
-      count: 0,
-    });
-    let creatorId = roomIdArr[id].creator;
-    socket.to(creatorId).emit("member-joined", roomIdArr[id]["members"]);
   });
 
   // get new que and send it
