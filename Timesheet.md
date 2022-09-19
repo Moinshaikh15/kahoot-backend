@@ -39,7 +39,7 @@ Total time spend: 7hrs & 15min
     05:15 - 05:45: Worked on frontend - on socket io setup
     08:45 - 09:13: Worked on frontend - on edit of kahoot
 
-Total time spend: 8hrs 13min
+    Total time spend: 8hrs 13min
 
 ---
 
@@ -58,7 +58,7 @@ Total time spend: 8hrs 13min
     05:30- 05:45: fixing sum bugs
     10:10- 10:50: Worked on socket io
 
-Total time spend: 7hrs 40 mins
+    Total time spend: 7hrs 40 mins
 
 ---
 
@@ -78,7 +78,7 @@ Total time spend: 7hrs 40 mins
     05:40- 07:45: worked on showing them after finished at last page and made options selected only once
     09:30- 10:20: worked on frontend ui
 
-Total time spend: 9hrs 35min
+    Total time spend: 9hrs 35min
 
 ---
 
@@ -96,7 +96,7 @@ Total time spend: 9hrs 35min
      5:30-7:02:worked on ui of create page
      7:5-7:45:worked on play page ui
 
-Total time spend: 8hrs 43min
+    Total time spend: 8hrs 43min
 
 ---
 
@@ -111,7 +111,8 @@ Total time spend: 8hrs 43min
     02:30-04:00:worked on editing question frontend and backend both
     04:00-04:50:worked on quiz page styling
     09:30-11:00:worked on leaderBoard
-Total time spend: 5hrs 30min
+    
+    Total time spend: 5hrs 30min
 ---
 ### 19 Sep '22
 
@@ -120,6 +121,6 @@ Total time spend: 5hrs 30min
     10:00-1:00:worked on ui and other bugs
     1:30-04:00:worked on ui and other bugs
 
-Total time spend: 6hrs 30min
+    Total time spend: 6hrs 30min
 ---
 
