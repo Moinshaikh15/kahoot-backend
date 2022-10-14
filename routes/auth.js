@@ -2,6 +2,8 @@ const express = require("express");
 const UserModel = require("../module/userSchema");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.CLIENT_ID);
 
 let router = express.Router();
 //SignUp
@@ -41,26 +43,48 @@ router.post("/signup", async (req, res) => {
 
 //Login
 router.post("/login", async (req, res) => {
+  let { googleId, tokenId, profileObj } = req.body;
   let { email, password } = req.body;
-
-  if ((!email, !password)) {
-    return res.status(400).send("email and password both required");
+  let existingUser;
+  let correctPass;
+  if (googleId) {
+    verify(tokenId);
+    email = profileObj.email;
+    existingUser = await UserModel.find({ email: email });
+    existingUser = existingUser[0];
+    if (existingUser === undefined) {
+      let newUser = new UserModel({
+        name: profileObj.name,
+        email: profileObj.email,
+        password: "",
+      });
+      try {
+        let savedUser = await newUser.save();
+        savedUser.password = undefined;
+        existingUser = savedUser;
+      } catch (err) {
+        return res.status(400).send(err.message);
+      }
+    }
+    correctPass = true;
+  } else {
+    if ((!email, !password)) {
+      return res.status(400).send("email and password both required");
+    }
+    existingUser = await UserModel.find({ email: email });
+    existingUser = existingUser[0];
+    if (existingUser === undefined) {
+      return res.status(400).send("Email does not Exists");
+    }
+    correctPass = await bcryptjs.compare(password, existingUser.password);
   }
-
-  let existingUser = await UserModel.find({ email: email });
-  existingUser = existingUser[0];
-  if (existingUser === undefined) {
-    return res.status(400).send("Email does not Exists");
-  }
- 
-  let correctPass = await bcryptjs.compare(password, existingUser.password);
 
   if (correctPass) {
     let payload = {
       id: existingUser.id,
       email: existingUser.email,
     };
-    
+
     let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1d",
     });
@@ -72,6 +96,24 @@ router.post("/login", async (req, res) => {
     return res.status(200).send({ accessToken, refreshToken, userInfo });
   } else {
     return res.status(400).send("Invalid Password");
+  }
+
+  async function verify(token) {
+    try {
+      const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: process.env.CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
+        // Or, if multiple clients access the backend:
+        //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+      });
+    
+      const payload = ticket.getPayload();
+      // If request specified a G Suite domain:
+      // const domain = payload['hd'];
+      return payload;
+    } catch (err) {
+      return res.status(400).send(err);
+    }
   }
 });
 
