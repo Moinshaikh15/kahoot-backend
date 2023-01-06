@@ -21,7 +21,12 @@ mongoose
   .catch((err) => console.log("error", err.message));
 
 //Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 app.use(express.static("public"));
 app.use(express.json());
 app.use(morgan("dev"));
@@ -61,7 +66,7 @@ io.on("connect", (socket) => {
         });
         let creatorId = roomIdArr[id].creator;
         socket.to(creatorId).emit("member-joined", roomIdArr[id]["members"]);
-        socket.emit('valid')
+        socket.emit("valid");
       });
     } else {
       socket.emit("invalid");
